@@ -1,0 +1,13 @@
+I want to get the computer to give me a rock paper or scissors.
+
+Compute a random number of 0, 1, or 2.
+Assign the value of these to rock paper or scissors and then return.
+
+The Math.random method returns a number from 0 to .999 recurring.
+
+So divide by 3 (I think .33 is enough decimal points)
+
+0 <= paper <.33, .33 <= rock < .66, .66 <= scissors < 1
+
+To make it more future proof:
+You can make it so that the .33 is actually defined by 1 divided by 3. That way if we wanted to change it to 4 we could.
