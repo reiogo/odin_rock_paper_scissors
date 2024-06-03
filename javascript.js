@@ -24,4 +24,24 @@ function getComputerChoice() {
 
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+    let userChoice;
+    let counter = 0;
+    do {
+        if (counter === 0) {
+    userChoice = prompt("Choose: rock, paper, or scissors");
+        } else { 
+    userChoice = prompt("Answer was invalid choose: rock, paper, or scissors");
+        }
+
+    userChoice = userChoice.toLowerCase();
+        
+        ++counter;
+    }
+    while ( userChoice !== 'rock' && userChoice !== 'paper'&& userChoice !== 'scissors');
+    return userChoice;
+
+}
+
+
+console.log (getHumanChoice())
