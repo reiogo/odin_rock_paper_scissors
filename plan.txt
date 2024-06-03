@@ -12,7 +12,7 @@ So divide by 3 (I think .33 is enough decimal points)
 To make it more future proof:
 You can make it so that the .33 is actually defined by 1 divided by 3. That way if we wanted to change it to 4 we could.
 
-***************************
+**************************************************
 
 Create a new function for human choice.
 
@@ -24,3 +24,17 @@ Add options to failsafe.
 
 Declare players scores
 
+Create variables to keep score in the global scope.
+
+**************************************************
+
+Making the program able to play a single round.
+
+Create function that takes the player and computers choices.
+Output to console.log the results.
+increment score
+
+Is there a way to make the logic more simple or efficient.
+
+
+**************************************************
