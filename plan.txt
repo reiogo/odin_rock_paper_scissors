@@ -38,3 +38,8 @@ Is there a way to make the logic more simple or efficient.
 
 
 **************************************************
+
+Finally implementing the game with 5 rounds.
+
+Call the playround function.
+play 5 rounds

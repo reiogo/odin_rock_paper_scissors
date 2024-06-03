@@ -1,13 +1,32 @@
 // Global scope
 let humanScore = 0;
 let computerScore = 0;
+playGame();
+
+
+function playGame() {
+
+// Implement game 5 rounds
+// For loop over playRound function 5 times;
+let i;
+
+for(i=0; i<=4; i++) {
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+console.log(playRound(humanSelection, computerSelection))
+        console.log ('You\'re score: ', humanScore, ' and the computer\'s score:', computerScore)
+    }
+
+}
 
 function playRound (humanChoice, computerChoice){
     let res;
-    let incrementer = NULL;
+    let incrementer = 0;
+    // Show computers choice.
+    console.log('The computer chose: ', computerChoice);
     //If choices are equivalent: tie.
     if (humanChoice === computerChoice) {
-        res = 'tie';
+        res = 'It\'s a tie!';
     }
     //If choices are scissors and rock, then the rock wins.
     else if ((computerChoice === 'scissors' || humanChoice === 'scissors') && (computerChoice === 'rock' || humanChoice === 'rock')) {
@@ -21,19 +40,20 @@ function playRound (humanChoice, computerChoice){
                 incrementer = 'human'
                 break;
         }
+    }
     //If choices are paper and scissors, then scissors win.
     else if ((computerChoice === 'scissors' || humanChoice === 'scissors') && (computerChoice === 'paper' || humanChoice === 'paper')) {
         switch (computerChoice) {
-            case 'paper':
-                res = "You lose! Paper beats scissors."
+            case 'scissors':
+                res = "You lose! Scissors beats paper."
                 incrementer = 'computer'
                 break;
-            case 'scissors':
-                res = "You win! Paper beats scissors."
+            case 'paper':
+                res = "You win! Scissors beats paper."
                 incrementer = 'human'
                 break;
         }
-
+    }
     //If choices are rock and paper, paper wins.
     else if ((computerChoice === 'rock' || humanChoice === 'rock') && (computerChoice === 'paper' || humanChoice === 'paper')) {
         switch (computerChoice) {
@@ -46,8 +66,7 @@ function playRound (humanChoice, computerChoice){
                 incrementer = 'human'
                 break;
         }
-
-
+    }
     //console log results and increment counter accordingly
     console.log(res);
     // switch statement for incrementing whoever won.
@@ -58,13 +77,12 @@ function playRound (humanChoice, computerChoice){
         case 'computer':
             computerScore++;
             break;
-        case NULL:
+        case 0:
             break;
     }
-    incrementer = NULL;
-
-
+    incrementer = 0;
 }
+
 
 
 function getComputerChoice() {
