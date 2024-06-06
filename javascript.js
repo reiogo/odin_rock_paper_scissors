@@ -44,7 +44,7 @@ container.appendChild(computerChoiceDisplay);
 container.appendChild(resultsDisplay);
 container.appendChild(runningscoreDisplay);
 runningscoreDisplay.textContent = (
-`You\'re score: ${humanScore} and the computer\'s score: ${computerScore}`
+`You\'re score: ${humanScore} and the computer\'s score: ${computerScore}`)
 
 // function playGame() {
 
