@@ -43,8 +43,6 @@ document.body.appendChild(container);
 container.appendChild(computerChoiceDisplay);
 container.appendChild(resultsDisplay);
 container.appendChild(runningscoreDisplay);
-runningscoreDisplay.textContent = (
-`You\'re score: ${humanScore} and the computer\'s score: ${computerScore}`)
 
 // function playGame() {
 
@@ -123,6 +121,8 @@ function playRound (humanChoice, computerChoice){
             break;
     }
     incrementer = 0;
+    runningscoreDisplay.textContent = (
+    `You\'re score: ${humanScore} and the computer\'s score: ${computerScore}`)
 }
 
 
