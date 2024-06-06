@@ -39,10 +39,12 @@ const container = document.createElement("div");
 const resultsDisplay = document.createElement("p");
 const computerChoiceDisplay = document.createElement("p");
 const runningscoreDisplay = document.createElement("p");
+const winnerDisplay = document.createElement("p");
 document.body.appendChild(container);
 container.appendChild(computerChoiceDisplay);
 container.appendChild(resultsDisplay);
 container.appendChild(runningscoreDisplay);
+container.appendChild(winnerDisplay);
 
 // function playGame() {
 
@@ -64,6 +66,8 @@ function playRound (humanChoice, computerChoice){
     let incrementer = 0;
     // Show computers choice.
     computerChoiceDisplay.textContent = `The computer chose: ${computerChoice}`;
+    // Set the winner display to an empty string.
+    winnerDisplay.textContent = '';
     //If choices are equivalent: tie.
     if (humanChoice === computerChoice) {
         res = 'It\'s a tie!';
@@ -80,7 +84,7 @@ function playRound (humanChoice, computerChoice){
                 incrementer = 'human'
                 break;
         }
-    }
+    u}
     //If choices are paper and scissors, then scissors win.
     else if ((computerChoice === 'scissors' || humanChoice === 'scissors') && (computerChoice === 'paper' || humanChoice === 'paper')) {
         switch (computerChoice) {
@@ -123,6 +127,15 @@ function playRound (humanChoice, computerChoice){
     incrementer = 0;
     runningscoreDisplay.textContent = (
     `You\'re score: ${humanScore} and the computer\'s score: ${computerScore}`)
+    if ( humanScore === 5) {
+        winnerDisplay.textContent = 'You won!';
+    } else if (computerScore === 5) {
+        winnerDisplay.textContent = 'The computer won';
+     }
+    if ( humanScore === 5 || computerScore === 5) {
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
 
 
