@@ -1,29 +1,71 @@
 // Global scope
 let humanScore = 0;
 let computerScore = 0;
-playGame();
+// playGame();
 
+// Adding ui.
+const paperbtn = document.createElement("button");
+paperbtn.setAttribute('id','paper');
+paperbtn.textContent = "paper";
+const rockbtn = document.createElement("button");
+rockbtn.setAttribute('id','rock');
+rockbtn.textContent = "rock";
+const scissorsbtn = document.createElement("button");
+scissorsbtn.setAttribute('id','scissors');
+scissorsbtn.textContent = "scissors";
 
-function playGame() {
+document.body.appendChild(paperbtn);
+document.body.appendChild(rockbtn);
+document.body.appendChild(scissorsbtn);
 
-// Implement game 5 rounds
-// For loop over playRound function 5 times;
-let i;
+document.body.addEventListener('click',(event) => {
+    let target = event.target;
+    let computerSelection = getComputerChoice()
+    switch (target.id) {
+        case 'paper':
+            playRound('paper', computerSelection);
+            break;
+        case 'rock':
+            playRound('rock', computerSelection);
+            break;
+        case 'scissors':
+            playRound('scissors', computerSelection);
+            break;
+    };
+});
 
-for(i=0; i<=4; i++) {
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(humanSelection, computerSelection))
-        console.log ('You\'re score: ', humanScore, ' and the computer\'s score:', computerScore)
-    }
+// Div for display.
+const container = document.createElement("div");
+const resultsDisplay = document.createElement("p");
+const computerChoiceDisplay = document.createElement("p");
+const runningscoreDisplay = document.createElement("p");
+document.body.appendChild(container);
+container.appendChild(computerChoiceDisplay);
+container.appendChild(resultsDisplay);
+container.appendChild(runningscoreDisplay);
+runningscoreDisplay.textContent = (
+`You\'re score: ${humanScore} and the computer\'s score: ${computerScore}`
 
-}
+// function playGame() {
+
+// // Implement game 5 rounds
+// // For loop over playRound function 5 times;
+// let i;
+
+// for(i=0; i<=4; i++) {
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
+// console.log(playRound(humanSelection, computerSelection))
+//         console.log ('You\'re score: ', humanScore, ' and the computer\'s score:', computerScore)
+//     }
+
+// }
 
 function playRound (humanChoice, computerChoice){
     let res;
     let incrementer = 0;
     // Show computers choice.
-    console.log('The computer chose: ', computerChoice);
+    computerChoiceDisplay.textContent = `The computer chose: ${computerChoice}`;
     //If choices are equivalent: tie.
     if (humanChoice === computerChoice) {
         res = 'It\'s a tie!';
@@ -68,7 +110,7 @@ function playRound (humanChoice, computerChoice){
         }
     }
     //console log results and increment counter accordingly
-    console.log(res);
+    resultsDisplay.textContent = `Results: ${res}`;
     // switch statement for incrementing whoever won.
     switch (incrementer) {
         case 'human':
