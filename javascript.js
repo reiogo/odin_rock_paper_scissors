@@ -5,12 +5,15 @@ let computerScore = 0;
 
 // Adding ui.
 const paperbtn = document.createElement("button");
+paperbtn.style.cssText += 'width: 15vw; height:20vh'
 paperbtn.setAttribute('id','paper');
 paperbtn.textContent = "paper";
 const rockbtn = document.createElement("button");
+rockbtn.style.cssText += 'width: 15vw; height:20vh'
 rockbtn.setAttribute('id','rock');
 rockbtn.textContent = "rock";
 const scissorsbtn = document.createElement("button");
+scissorsbtn.style.cssText += 'width: 15vw; height:20vh'
 scissorsbtn.setAttribute('id','scissors');
 scissorsbtn.textContent = "scissors";
 
