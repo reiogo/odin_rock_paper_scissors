@@ -3,27 +3,41 @@ let humanScore = 0;
 let computerScore = 0;
 // playGame();
 
+// Rules.
+const gameRules = document.createElement("p");
+gameRules.style.cssText += 'font-size: min(5vh, 4rem)'
+gameRules.textContent = "The first to 5 wins!";
+document.body.appendChild(gameRules);
+
 // Adding ui.
+
+const buttonDiv = document.createElement("div");
+buttonDiv.style.cssText += 'display: flex; align-items: center; justify-content: center; margin-top: 25vh;'
+document.body.appendChild(buttonDiv);
+
+
 const paperbtn = document.createElement("button");
-paperbtn.style.cssText += 'width: 15vw; height:20vh'
+paperbtn.style.cssText += 'width: min(40vw, 20rem); height: min(20vh, 8rem); font-size: min(5vh, 4rem'
 paperbtn.setAttribute('id','paper');
 paperbtn.textContent = "paper";
+
 const rockbtn = document.createElement("button");
-rockbtn.style.cssText += 'width: 15vw; height:20vh'
+rockbtn.style.cssText += 'width: min(40vw, 20rem); height: min(20vh, 8rem); font-size: min(5vh, 4rem'
 rockbtn.setAttribute('id','rock');
 rockbtn.textContent = "rock";
+
 const scissorsbtn = document.createElement("button");
-scissorsbtn.style.cssText += 'width: 15vw; height:20vh'
+scissorsbtn.style.cssText += 'width: min(40vw, 20rem); height: min(20vh, 8rem); font-size: min(5vh, 4rem'
 scissorsbtn.setAttribute('id','scissors');
 scissorsbtn.textContent = "scissors";
 
-document.body.appendChild(paperbtn);
-document.body.appendChild(rockbtn);
-document.body.appendChild(scissorsbtn);
+buttonDiv.appendChild(paperbtn);
+buttonDiv.appendChild(rockbtn);
+buttonDiv.appendChild(scissorsbtn);
 
 document.body.addEventListener('click',(event) => {
     let target = event.target;
-    let computerSelection = getComputerChoice()
+    let computerSelection = getComputerChoice();
     switch (target.id) {
         case 'paper':
             playRound('paper', computerSelection);
@@ -40,9 +54,15 @@ document.body.addEventListener('click',(event) => {
 // Div for display.
 const container = document.createElement("div");
 const resultsDisplay = document.createElement("p");
+resultsDisplay.style.cssText += 'font-size: min(5vh, 4rem)'
+
 const computerChoiceDisplay = document.createElement("p");
+computerChoiceDisplay.style.cssText += 'font-size: min(5vh, 4rem)'
 const runningscoreDisplay = document.createElement("p");
+runningscoreDisplay.style.cssText += 'font-size:min(5vh, 4rem)'
 const winnerDisplay = document.createElement("p");
+winnerDisplay.style.cssText += 'font-size: min(5vh, 4rem)'
+
 document.body.appendChild(container);
 container.appendChild(computerChoiceDisplay);
 container.appendChild(resultsDisplay);
@@ -87,7 +107,7 @@ function playRound (humanChoice, computerChoice){
                 incrementer = 'human'
                 break;
         }
-    u}
+    }
     //If choices are paper and scissors, then scissors win.
     else if ((computerChoice === 'scissors' || humanChoice === 'scissors') && (computerChoice === 'paper' || humanChoice === 'paper')) {
         switch (computerChoice) {
@@ -130,9 +150,9 @@ function playRound (humanChoice, computerChoice){
     incrementer = 0;
     runningscoreDisplay.textContent = (
     `You\'re score: ${humanScore} and the computer\'s score: ${computerScore}`)
-    if ( humanScore === 5) {
+    if ( humanScore >= 5) {
         winnerDisplay.textContent = 'You won!';
-    } else if (computerScore === 5) {
+    } else if (computerScore >= 5) {
         winnerDisplay.textContent = 'The computer won';
      }
     if ( humanScore === 5 || computerScore === 5) {
