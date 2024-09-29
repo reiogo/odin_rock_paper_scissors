@@ -1,4 +1,4 @@
 # rock_paper_scissors
-The Odin Project - JavaScript project
+Exercise in game logic. 
 
-https://www.theodinproject.com/lessons/foundations-rock-paper-scissors
+Live Demo: https://reiogo.github.io/odin_rock_paper_scissors/
